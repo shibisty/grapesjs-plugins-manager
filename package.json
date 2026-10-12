@@ -1,0 +1,53 @@
+{
+  "name": "grapesjs-plugins-manager",
+  "version": "1.0.0",
+  "description": "GrapesJS plugin manager: enable/disable plugins, install plugins from a zip (stored in IndexedDB) and edit plugin settings kept in localStorage.",
+  "type": "module",
+  "main": "./dist/grapesjs-plugins-manager.umd.cjs",
+  "module": "./dist/grapesjs-plugins-manager.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/grapesjs-plugins-manager.js",
+      "require": "./dist/grapesjs-plugins-manager.umd.cjs"
+    }
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
+  "sideEffects": false,
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build && tsc -p tsconfig.json --emitDeclarationOnly",
+    "typecheck": "tsc -p tsconfig.json --noEmit && tsc -p tsconfig.test.json",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "prepublishOnly": "npm run typecheck && npm test && npm run build"
+  },
+  "peerDependencies": {
+    "grapesjs": ">=0.21.0 <1.0.0"
+  },
+  "devDependencies": {
+    "fake-indexeddb": "6.2.5",
+    "fflate": "0.8.2",
+    "grapesjs": "0.21.13",
+    "jsdom": "^25.0.1",
+    "typescript": "5.6.3",
+    "vite": "5.4.11",
+    "vitest": "^2.1.9"
+  },
+  "keywords": [
+    "grapesjs",
+    "grapesjs-plugin",
+    "plugin-manager",
+    "plugins",
+    "extensions",
+    "zip",
+    "indexeddb"
+  ],
+  "author": "Alexander Shibisty",
+  "license": "MIT"
+}
